@@ -27,7 +27,21 @@ class NetworkManager {
                 print("Invalid data")
                 return
             }
-            print(String(data: data, encoding: .utf8)!)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            do{
+            let response = try decoder.decode(PlayListResponse.self, from: data)
+                dump(response)
+            }catch{
+                
+            }
+//            do{
+//                let playList = try decoder.decode(Playlist.self, from: data)
+//                print(playList.items[0].snippet.resourceId.videoId)
+//            }catch{
+//                print("Error in parsing Jsondata")
+//                print(error.localizedDescription)
+//            }
         }
         
         task.resume()
