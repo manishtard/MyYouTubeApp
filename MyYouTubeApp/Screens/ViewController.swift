@@ -41,6 +41,14 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! VideoDetailVC
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let video = videoList[indexPath.row]
+        destVC.video = video
+    }
 }
 
 

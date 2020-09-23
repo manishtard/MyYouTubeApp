@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// not used in project just added for learning purposes
 struct CacheManager {
     
     static var cache: [String: Data] = [:]

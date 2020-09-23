@@ -61,6 +61,7 @@
                                             <outlet property="dateLabel" destination="LoI-0g-1T2" id="Ycp-ss-OaZ"/>
                                             <outlet property="thumbnailImageView" destination="Adk-Rf-aOE" id="VOl-Jb-FJH"/>
                                             <outlet property="titleLabel" destination="Eqq-Sq-NgU" id="RG4-bo-YxM"/>
+                                            <segue destination="Fuw-l8-PXV" kind="show" identifier="segueToDetailScreen" id="xfc-7E-nyd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -83,6 +84,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="88.392857142857139"/>
+        </scene>
+        <!--Video Detail-->
+        <scene sceneID="pqo-bG-Wtw">
+            <objects>
+                <viewController id="Fuw-l8-PXV" customClass="VideoDetailVC" customModule="MyYouTubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3lr-0H-TSe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfS-3g-UFL">
+                                <rect key="frame" x="14" y="102" width="386" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-qx-oTP">
+                                <rect key="frame" x="14" y="146" width="386" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="an2-64-cIX">
+                                <rect key="frame" x="14" y="187" width="386" height="217"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="an2-64-cIX" secondAttribute="height" multiplier="1280:720" id="dbI-li-anh"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qyE-yX-Bsd">
+                                <rect key="frame" x="14" y="418" width="386" height="444"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LfA-J7-OwD" firstAttribute="trailing" secondItem="qyE-yX-Bsd" secondAttribute="trailing" constant="14" id="6aM-Id-yZc"/>
+                            <constraint firstItem="TRi-qx-oTP" firstAttribute="top" secondItem="lfS-3g-UFL" secondAttribute="bottom" constant="20" id="CZA-Kv-cIl"/>
+                            <constraint firstItem="qyE-yX-Bsd" firstAttribute="top" secondItem="an2-64-cIX" secondAttribute="bottom" constant="14" id="Dcw-Sd-VuA"/>
+                            <constraint firstItem="LfA-J7-OwD" firstAttribute="bottom" secondItem="qyE-yX-Bsd" secondAttribute="bottom" id="F3M-we-ODH"/>
+                            <constraint firstItem="an2-64-cIX" firstAttribute="leading" secondItem="LfA-J7-OwD" secondAttribute="leading" constant="14" id="Lof-rb-dbB"/>
+                            <constraint firstItem="lfS-3g-UFL" firstAttribute="top" secondItem="LfA-J7-OwD" secondAttribute="top" constant="14" id="PQA-62-8rl"/>
+                            <constraint firstItem="an2-64-cIX" firstAttribute="top" secondItem="TRi-qx-oTP" secondAttribute="bottom" constant="20" id="Up7-6d-doc"/>
+                            <constraint firstItem="LfA-J7-OwD" firstAttribute="trailing" secondItem="lfS-3g-UFL" secondAttribute="trailing" constant="14" id="fDN-dP-mJb"/>
+                            <constraint firstItem="TRi-qx-oTP" firstAttribute="leading" secondItem="LfA-J7-OwD" secondAttribute="leading" constant="14" id="ki9-Qp-nzD"/>
+                            <constraint firstItem="lfS-3g-UFL" firstAttribute="leading" secondItem="LfA-J7-OwD" secondAttribute="leading" constant="14" id="kp8-zu-bnz"/>
+                            <constraint firstItem="qyE-yX-Bsd" firstAttribute="leading" secondItem="LfA-J7-OwD" secondAttribute="leading" constant="14" id="lHj-hB-TIx"/>
+                            <constraint firstItem="LfA-J7-OwD" firstAttribute="trailing" secondItem="an2-64-cIX" secondAttribute="trailing" constant="14" id="meR-eP-mPO"/>
+                            <constraint firstItem="LfA-J7-OwD" firstAttribute="trailing" secondItem="TRi-qx-oTP" secondAttribute="trailing" constant="14" id="vM1-jF-jlX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LfA-J7-OwD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Video Detail" largeTitleDisplayMode="never" id="gHb-ob-G6a"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="TRi-qx-oTP" id="pyT-z4-ozC"/>
+                        <outlet property="textView" destination="qyE-yX-Bsd" id="GSh-cZ-STb"/>
+                        <outlet property="titleLabel" destination="lfS-3g-UFL" id="LTo-uu-vgt"/>
+                        <outlet property="webView" destination="an2-64-cIX" id="ptW-Qb-CCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryb-LD-TYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2084" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZHP-Nv-Jfd">
